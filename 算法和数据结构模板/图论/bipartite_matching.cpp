@@ -18,7 +18,7 @@ void add_edge(int u, int v){
 }
 
 bool dfs(int v){
-    used[v] = 0;
+    used[v] = 1;
     for(int i=0;i<G[v].size();i++){
         int u = G[v][i];
         int w = match[u];
