@@ -1,5 +1,8 @@
 #include<stdio.h>
 #include<string.h>
+#include<algorithm>
+
+using namespace std;
 
 const int maxn = 1005;
 const int inf = 0x3f3f3f3f;
@@ -24,15 +27,24 @@ void solve_n2(){
 
 void solve_nlogn(){
     memset(dp, inf, sizeof(dp));
+    // for(int i=0;i<n;i++){
+    //     int left = 0;
+    //     int right = 
 
-
+    // }
+    for(int i=0;i<n;i++){
+        *lower_bound(dp,dp+n,a[i]) = a[i];
+    }
+    printf("%d\n", lower_bound(dp, dp+n, inf) - dp);
 }
-int main(){
 
+int main(){
+    freopen("in.txt","r",stdin);
+    freopen("out.txt","w",stdout);
     scanf("%d", &n);
     for(int i=0;i<n;i++){
         scanf("%d", &a[i]);
     }
-    solve_n2();
+    solve_nlogn();
     return 0;
 }
